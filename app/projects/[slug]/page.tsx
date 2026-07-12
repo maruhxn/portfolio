@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PROJECTS } from "@/content/projects";
 import { Markdown } from "@/components/content/markdown";
@@ -39,7 +40,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <Toc headings={topLevelHeadings(body)} />
       <Markdown>{body}</Markdown>
       <div className="mt-16 border-t border-border pt-8">
-        <a href="/#projects" className="text-sm text-accent hover:underline">← 프로젝트 목록으로</a>
+        <Link href="/#projects" className="text-sm text-accent hover:underline">← 프로젝트 목록으로</Link>
       </div>
     </main>
   );

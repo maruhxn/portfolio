@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 포트폴리오 웹사이트 — 고지완 (Ko Ji Wan)
 
-## Getting Started
+Next.js(App Router) + Tailwind CSS 기반 정적 포트폴리오. Vercel 배포. 외부 런타임 의존(백엔드·노션 API·이메일 서비스) 없음.
 
-First, run the development server:
+## 개발
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 에서 확인.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 빌드
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build && npm start
+```
 
-## Learn More
+## 구조
 
-To learn more about Next.js, take a look at the following resources:
+- 메인 한 페이지: Hero · Skills · Projects · Blog · Contact (`app/page.tsx`, `components/sections/*`)
+- 프로젝트 상세: `/projects/[slug]` SSG (`app/projects/[slug]/page.tsx`)
+- 상세 본문 렌더링: `react-markdown` + `rehype-raw` + Mermaid 클라이언트 렌더 (`components/content/*`)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 콘텐츠 수정
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 프로필/스킬/프로젝트 메타: `content/profile.ts`, `content/skills.ts`, `content/projects.ts`
+- 프로젝트 상세 본문: `content/projects/*.md` (노션에서 1회 복사한 정적 콘텐츠, 실시간 연동 아님)
+- 이미지: `public/projects/`
+- 프로필 사진: `public/profile.jpeg`
 
-## Deploy on Vercel
+## 남은 TODO
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Hero 타이틀 세부 문구 (`content/profile.ts`의 `title`)
+- 자기소개 최종 문구 (`content/profile.ts`의 `intro`)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 배포 (Vercel)
+
+GitHub에 push 후 Vercel에서 이 레포를 import → 기본 설정으로 배포. 환경변수 불필요.
