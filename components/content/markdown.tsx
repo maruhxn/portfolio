@@ -40,7 +40,7 @@ export function Markdown({ children }: { children: string }) {
               return <Mermaid chart={extractText((child.props as { children?: ReactNode }).children).trim()} />;
             }
             return (
-              <pre className="overflow-x-auto rounded-xl border border-border bg-card p-4 text-sm">{children}</pre>
+              <pre className="overflow-x-auto rounded-xl border border-border bg-card p-4 text-sm text-foreground">{children}</pre>
             );
           },
           img({ src, alt }) {

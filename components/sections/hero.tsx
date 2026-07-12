@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { profile } from "@/content/profile";
+import { EmailButton } from "@/components/email-button";
 
 export function Hero() {
   return (
@@ -22,8 +23,8 @@ export function Hero() {
             className="rounded-lg border border-border px-4 py-2 text-sm transition hover:bg-card">GitHub</a>
           <a href={profile.socials.blog} target="_blank" rel="noreferrer"
             className="rounded-lg border border-border px-4 py-2 text-sm transition hover:bg-card">Blog</a>
-          <a href={`mailto:${profile.email}`}
-            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90">Email</a>
+          <EmailButton email={profile.email}
+            className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90" />
         </div>
       </div>
     </section>
