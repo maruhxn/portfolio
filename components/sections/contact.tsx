@@ -6,9 +6,13 @@ import { profile } from "@/content/profile";
 export function Contact() {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
-    await navigator.clipboard.writeText(profile.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      // 클립보드 API 미지원·거부 시 무시 (mailto 링크로 대체 가능)
+    }
   };
   return (
     <section id="contact" className="mx-auto max-w-5xl px-6 py-20">
@@ -17,7 +21,7 @@ export function Contact() {
         <p className="text-sm text-muted">연락은 이메일로 부탁드립니다.</p>
         <div className="mt-3 flex flex-wrap items-center gap-3">
           <a href={`mailto:${profile.email}`} className="text-lg font-semibold text-accent hover:underline">{profile.email}</a>
-          <button type="button" onClick={copy}
+          <button type="button" onClick={copy} aria-live="polite"
             className="rounded-md border border-border px-3 py-1 text-xs transition hover:bg-background">
             {copied ? "복사됨!" : "복사"}
           </button>

@@ -25,12 +25,13 @@ export function Nav() {
         </div>
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
-          <button type="button" aria-label="메뉴" onClick={() => setOpen((v) => !v)}
+          <button type="button" aria-label="메뉴" aria-expanded={open} aria-controls="mobile-menu"
+            onClick={() => setOpen((v) => !v)}
             className="flex h-9 w-9 items-center justify-center rounded-lg border border-border">☰</button>
         </div>
       </nav>
       {open && (
-        <div className="border-t border-border/60 bg-background md:hidden">
+        <div id="mobile-menu" className="border-t border-border/60 bg-background md:hidden">
           <div className="mx-auto flex max-w-5xl flex-col px-6 py-2">
             {LINKS.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)}

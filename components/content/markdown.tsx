@@ -3,10 +3,10 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-import rehypeSlug from "rehype-slug";
 import type { ReactNode } from "react";
 import { isValidElement } from "react";
 import { Mermaid } from "./mermaid";
+import { slugify } from "@/lib/slug";
 
 function extractText(node: ReactNode): string {
   if (typeof node === "string") return node;
@@ -25,8 +25,12 @@ export function Markdown({ children }: { children: string }) {
       prose-code:before:content-[''] prose-code:after:content-['']">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw, rehypeSlug]}
+        rehypePlugins={[rehypeRaw]}
         components={{
+          h2({ children }) {
+            // TOC(toc.tsx)와 동일한 slugify로 id를 부여해 앵커 링크가 항상 일치하도록 함
+            return <h2 id={slugify(extractText(children))}>{children}</h2>;
+          },
           pre({ children }) {
             const child = Array.isArray(children) ? children[0] : children;
             const className = isValidElement(child)
