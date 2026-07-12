@@ -30,11 +30,6 @@ npm run build && npm start
 - 이미지: `public/projects/`
 - 프로필 사진: `public/profile.jpeg`
 
-## 남은 TODO
-
-- Hero 타이틀 세부 문구 (`content/profile.ts`의 `title`)
-- 자기소개 최종 문구 (`content/profile.ts`의 `intro`)
-
 ## 배포 (Vercel)
 
 GitHub에 push 후 Vercel에서 이 레포를 import → 기본 설정으로 배포. 환경변수 불필요.

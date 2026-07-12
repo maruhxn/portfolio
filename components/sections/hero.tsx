@@ -10,11 +10,11 @@ export function Hero() {
           className="rounded-2xl border border-border object-cover shadow-sm" priority />
       </div>
       <div className="text-center md:text-left">
-        <p className="text-sm font-medium text-accent">{profile.title}{/* TODO: 타이틀 문구 확정 */}</p>
+        <p className="text-sm font-medium text-accent">{profile.title}</p>
         <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
           {profile.nameKo} <span className="text-muted">· {profile.nameEn}</span>
         </h1>
-        <p className="mt-5 max-w-xl leading-relaxed text-muted">{profile.intro}{/* TODO: 소개 문구 확정 */}</p>
+        <p className="mt-5 max-w-xl whitespace-pre-line leading-relaxed text-muted">{profile.intro}</p>
         <p className="mt-4 text-sm text-muted">
           🎓 {profile.education.school} {profile.education.major}
         </p>
