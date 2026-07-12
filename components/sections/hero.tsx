@@ -14,7 +14,11 @@ export function Hero() {
         <h1 className="mt-2 text-4xl font-bold tracking-tight md:text-5xl">
           {profile.nameKo} <span className="text-muted">· {profile.nameEn}</span>
         </h1>
-        <p className="mt-5 max-w-xl whitespace-pre-line leading-relaxed text-muted">{profile.intro}</p>
+        <div className="mt-5 max-w-xl space-y-3 leading-relaxed text-muted">
+          {profile.intro.split("\n").map((line, i) => (
+            <p key={i}>{line}</p>
+          ))}
+        </div>
         <p className="mt-4 text-sm text-muted">
           🎓 {profile.education.school} {profile.education.major}
         </p>
