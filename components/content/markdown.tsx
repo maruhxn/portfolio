@@ -24,7 +24,7 @@ export function Markdown({ children }: { children: string }) {
       prose-img:rounded-lg prose-img:border prose-img:border-border
       prose-code:before:content-[''] prose-code:after:content-['']">
       <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
+        remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
         rehypePlugins={[rehypeRaw]}
         components={{
           h2({ children }) {
