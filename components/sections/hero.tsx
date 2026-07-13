@@ -19,9 +19,21 @@ export function Hero() {
             <p key={i}>{line}</p>
           ))}
         </div>
-        <p className="mt-4 text-sm text-muted">
-          🎓 {profile.education.school} {profile.education.major}
-        </p>
+        <div className="mt-4 space-y-1.5 text-sm text-muted">
+          <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 md:justify-start">
+            <span>
+              🏢 <span className="font-medium text-foreground">{profile.career.company}</span>{" "}
+              {profile.career.period}
+            </span>
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-2 py-0.5 text-xs">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
+              재직 중
+            </span>
+          </p>
+          <p>
+            🎓 {profile.education.school} {profile.education.major}
+          </p>
+        </div>
         <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
           <a href={profile.socials.github} target="_blank" rel="noreferrer"
             className="rounded-lg border border-border px-4 py-2 text-sm transition hover:bg-card">GitHub</a>
