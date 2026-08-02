@@ -27,7 +27,7 @@ export function Hero() {
             </span>
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-2 py-0.5 text-xs">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-500" />
-              재직 중
+              구직 중
             </span>
           </p>
           <p>
