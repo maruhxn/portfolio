@@ -26,7 +26,7 @@ export const PROJECTS: ProjectMeta[] = [
     slug: "wallet",
     title: "월렛",
     period: "2026.03.16 ~ 2026.06.16",
-    summary: "효성 CMS 자동이체 구독 결제·정산. 순서 없는 비동기 콜백과 서버 중단에도 결제 상태와 크레딧 지급을 일치시킨 시스템.",
+    summary: "효성 CMS 자동이체 구독 결제·정산. 중복·역순 웹훅을 상태 머신과 Inbox 멱등 처리로 거르고, 일시적 결제 실패가 서비스 해지로 이어지지 않게 한 시스템.",
     tags: ["상태 머신", "Inbox 패턴", "멱등성", "구독 결제"],
   },
   // 비노출 (복구하려면 주석 해제. 본문은 content/projects/opensearch.md 유지)
