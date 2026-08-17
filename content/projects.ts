@@ -11,8 +11,8 @@ export const PROJECTS: ProjectMeta[] = [
     slug: "eventmaker",
     title: "이벤트메이커",
     period: "2025.09.29 ~ 2025.11.10",
-    summary: "참여 트랜잭션과 외부 보상 지급의 경계를 분리하고, 동시 요청·외부 장애에도 지급 내역을 최종 일치시킨 분산 환경 대응 백엔드.",
-    tags: ["분산 락", "AFTER_COMMIT", "Circuit Breaker", "Eventual Consistency"],
+    summary: "참여 트랜잭션과 외부 보상 지급의 경계를 분리하고, 동시 요청·외부 장애에도 지급 내역을 최종 일치시킨 백엔드. 한계 실측 부하테스트로 병목을 제거했습니다.",
+    tags: ["Transactional Outbox", "분산 락", "Circuit Breaker", "부하테스트"],
   },
   {
     slug: "qmoney-expiration",
