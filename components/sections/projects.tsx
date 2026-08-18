@@ -12,7 +12,6 @@ export function Projects() {
             <div className="flex items-baseline justify-between gap-3">
               <h3 className="text-lg font-semibold tracking-tight group-hover:text-accent">{p.title}</h3>
             </div>
-            <p className="mt-1 text-xs text-muted">{p.period}</p>
             <p className="mt-3 flex-1 text-sm leading-relaxed text-foreground/80">{p.summary}</p>
             <ul className="mt-4 flex flex-wrap gap-2">
               {p.tags.map((t) => (

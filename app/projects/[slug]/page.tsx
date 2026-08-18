@@ -36,7 +36,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const body = readBody(slug);
   return (
     <main className="mx-auto max-w-3xl px-6 pt-28 pb-24">
-      <ProjectHeader title={project.title} period={project.period} />
+      <ProjectHeader title={project.title} />
       <Toc headings={topLevelHeadings(body)} />
       <Markdown>{body}</Markdown>
       <div className="mt-16 border-t border-border pt-8">
