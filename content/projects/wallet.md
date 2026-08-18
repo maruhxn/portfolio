@@ -13,7 +13,6 @@ sequenceDiagram
     participant API as 파트너스 API
     participant CMS as 효성 CMS
     participant Webhook as 웹훅 API
-    participant Wallet as 월렛
 
     Mart ->> API: 자동이체 등록 요청
     API ->> CMS: 간편동의 URL 생성
@@ -24,7 +23,7 @@ sequenceDiagram
     Mart ->> API: 최초 출금 요청
     API ->> CMS: 계좌 출금
     CMS -->> API: 출금 결과
-    API ->> Wallet: 결제 성공 처리 + 크레딧 지급
+    API ->> API: 결제 성공 처리 + 월렛 크레딧 지급
     API -->> Mart: 결제 결과 + 지급된 크레딧
 ```
 
