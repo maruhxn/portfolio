@@ -5,7 +5,7 @@ export function Projects() {
   return (
     <section id="projects" className="mx-auto max-w-5xl px-6 py-20">
       <h2 className="text-2xl font-bold tracking-tight md:text-3xl">Projects</h2>
-      <div className="mt-8 grid gap-5 sm:grid-cols-2">
+      <div className={`mt-8 grid gap-5 ${PROJECTS.length > 1 ? "sm:grid-cols-2" : ""}`}>
         {PROJECTS.map((p) => (
           <Link key={p.slug} href={`/projects/${p.slug}`}
             className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition hover:border-accent hover:shadow-sm">
